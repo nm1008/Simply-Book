@@ -41,9 +41,13 @@ export default function Register() {
       password === confirmPassword
     ) {
       axios
-        .post(`http://localhost:3000/api/users`, data, {
-          headers: { "Content-Type": "application/json" },
-        })
+        .post(
+          `simply-book.vercel.app/api/users`,
+          data,
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        )
         .then(() => {
           Swal.fire({
             title: "Good job!",

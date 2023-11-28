@@ -32,19 +32,27 @@ export default function EditProfile() {
 
   //GETTING THE DETAILS OF THE USER
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/users/${id}`).then((res) => {
-      setFirstName(res.data.firstName);
-      setLastName(res.data.lastName);
-      setMobileNumber(res.data.mobileNo);
-    });
+    axios
+      .get(
+        `simply-book.vercel.app/api/users/${id}`
+      )
+      .then((res) => {
+        setFirstName(res.data.firstName);
+        setLastName(res.data.lastName);
+        setMobileNumber(res.data.mobileNo);
+      });
   }, [id]);
 
   const handleEditUser = async (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3000/api/users/${id}`, data, {
-        headers: headers,
-      })
+      .put(
+        `simply-book.vercel.app/api/users/${id}`,
+        data,
+        {
+          headers: headers,
+        }
+      )
       .then((res) => {
         if (res.data) {
           Swal.fire({

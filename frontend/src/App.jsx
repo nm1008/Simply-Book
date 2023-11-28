@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import axios from "axios";
 
 //COMPONENTS
 import Heading from "./components/Navbar";
@@ -20,6 +21,7 @@ import RequireAuth from "../src/utils/RequireAuth";
 function App() {
   //DARK MODE
   const [theme, setTheme] = useState(null);
+  axios.defaults.withCredentials = true;
 
   //CHECKS WHAT IS THE DEVICE PREFERRED MODE
   useEffect(() => {

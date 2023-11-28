@@ -28,9 +28,13 @@ export default function Login() {
       alert("Please input your email and/or password.");
     }
     axios
-      .post(`http://localhost:3000/api/users/login`, data, {
-        headers: { "Content-Type": "application/json" },
-      })
+      .post(
+        `simply-book.vercel.app/api/users/login`,
+        data,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      )
       .then((res) => {
         if (res.data.accessToken) {
           localStorage.setItem("token", res.data.accessToken);
@@ -38,7 +42,8 @@ export default function Login() {
 
           axios
             .post(
-              `http://localhost:3000/api/users/details`,
+              `simply-book.vercel.app
+              /api/users/details`,
               { email: email },
               {
                 headers: { "Content-Type": "application/json" },

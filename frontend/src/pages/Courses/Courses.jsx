@@ -15,7 +15,7 @@ export default function Courses() {
 
   //GETTING ALL COURSES AND SETTING IT TO THE STATE
   useEffect(() => {
-    fetch("http://localhost:3000/api/courses")
+    fetch(`simply-book.vercel.app/api/courses`)
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);
@@ -23,26 +23,28 @@ export default function Courses() {
   //GETTING THE USERS INFORMATION AND SETTING IT TO THE STATE
   useEffect(() => {
     const id = localStorage.getItem("_id");
-    axios.get(`http://localhost:3000/api/users/${id}`).then((res) => {
+    axios.get(`simply-book.vercel.app/api/users/${id}`).then((res) => {
       setUserEmail(res.data.email);
       setIsAdmin(res.data.isAdmin);
     });
   }, [isAdmin]);
 
   const handleEnrollCourse = (courseName) => {
-
     try {
-      fetch(`http://localhost:3000/api/users/enroll`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          email: userEmail,
-          name: courseName,
-        }),
-      })
+      fetch(
+        `simply-book.vercel.app/api/users/enroll`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            email: userEmail,
+            name: courseName,
+          }),
+        }
+      )
         .then((res) => {
           if (res.status === 201) {
             Swal.fire({

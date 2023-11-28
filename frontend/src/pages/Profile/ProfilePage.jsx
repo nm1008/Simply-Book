@@ -23,7 +23,7 @@ export default function ProfilePage() {
       const id = localStorage.getItem("_id");
 
       // Fetch user data by their ID
-      fetch(`http://localhost:3000/api/users/${id}`)
+      fetch(`simply-book.vercel.app/api/users/${id}`)
         .then((res) => res.json())
         .then((data) => {
           // Set user data to the state variables
@@ -35,7 +35,7 @@ export default function ProfilePage() {
           // Fetch enrolled courses data by their IDs
           const coursePromises = data.enrollments.map((course) => {
             return fetch(
-              `http://localhost:3000/api/courses/${course.courseId}`
+              `simply-book.vercel.app/api/courses/${course.courseId}`
             ).then((res) => res.json());
           });
 
@@ -43,7 +43,6 @@ export default function ProfilePage() {
           Promise.all(coursePromises).then((courseData) => {
             setCourses(courseData); // Set the user's enrolled courses
           });
-        
         });
     } catch (err) {
       console.log(err);

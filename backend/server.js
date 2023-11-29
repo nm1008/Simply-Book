@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 app.use(
   cors({
-    origin: [`http://localhost:3000`, "https://newback-simply-book.onrender.com/api/courses"],
+    origin: [`http://localhost:3000`, "https://newback-simply-book.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

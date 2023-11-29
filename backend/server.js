@@ -11,9 +11,7 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 app.use(
   cors({
-    origin: [
-      `https://deploy-mern-frontend-jet.vercel.app/`,
-    ],
+    origin: [`http://localhost:3000`, "https://mern-task-app.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

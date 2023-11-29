@@ -9,7 +9,13 @@ const PORT = process.env.PORT || 8000;
 
 //MIDDLEWARE
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://simply-book-zgyr.vercel.app/"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 //connecting to mongoDB database and listening to port (whatever that is stored in the .env or default 8000 and the server cannot connect to the server it will log the error message)
 mongoose

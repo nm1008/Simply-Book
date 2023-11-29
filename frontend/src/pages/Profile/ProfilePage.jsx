@@ -23,7 +23,7 @@ export default function ProfilePage() {
       const id = localStorage.getItem("_id");
 
       // Fetch user data by their ID
-      fetch(`simply-book.vercel.app/api/users/${id}`)
+      fetch(`https://newback-simply-book.onrender.com/api/users/${id}`)
         .then((res) => res.json())
         .then((data) => {
           // Set user data to the state variables
@@ -35,7 +35,7 @@ export default function ProfilePage() {
           // Fetch enrolled courses data by their IDs
           const coursePromises = data.enrollments.map((course) => {
             return fetch(
-              `simply-book.vercel.app/api/courses/${course.courseId}`
+              `https://newback-simply-book.onrender.com/api/courses/${course.courseId}`
             ).then((res) => res.json());
           });
 

@@ -17,7 +17,7 @@ export default function AddCourse() {
     e.preventDefault();
     try {
       fetch(
-        `simply-book.vercel.app/api/courses`,
+        `https://newback-simply-book.onrender.com/api/courses`,
         {
           method: "POST",
           headers: {

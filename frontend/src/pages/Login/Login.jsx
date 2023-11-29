@@ -29,7 +29,7 @@ export default function Login() {
     }
     axios
       .post(
-        `simply-book.vercel.app/api/users/login`,
+        `https://newback-simply-book.onrender.com/api/users/login`,
         data,
         {
           headers: { "Content-Type": "application/json" },
@@ -42,8 +42,7 @@ export default function Login() {
 
           axios
             .post(
-              `simply-book.vercel.app
-              /api/users/details`,
+              `https://newback-simply-book.onrender.com/api/users/details`,
               { email: email },
               {
                 headers: { "Content-Type": "application/json" },

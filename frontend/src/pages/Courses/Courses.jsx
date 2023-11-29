@@ -23,7 +23,7 @@ export default function Courses() {
   //GETTING THE USERS INFORMATION AND SETTING IT TO THE STATE
   useEffect(() => {
     const id = localStorage.getItem("_id");
-    axios.get(`simply-book.vercel.app/api/users/${id}`).then((res) => {
+    axios.get(`https://newback-simply-book.onrender.com/api/users/${id}`).then((res) => {
       setUserEmail(res.data.email);
       setIsAdmin(res.data.isAdmin);
     });
@@ -32,7 +32,7 @@ export default function Courses() {
   const handleEnrollCourse = (courseName) => {
     try {
       fetch(
-        `simply-book.vercel.app/api/users/enroll`,
+        `https://newback-simply-book.onrender.com/api/users/enroll`,
         {
           method: "POST",
           headers: {

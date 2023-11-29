@@ -34,7 +34,7 @@ export default function EditProfile() {
   useEffect(() => {
     axios
       .get(
-        `simply-book.vercel.app/api/users/${id}`
+        `https://newback-simply-book.onrender.com/api/users/${id}`
       )
       .then((res) => {
         setFirstName(res.data.firstName);
@@ -47,7 +47,7 @@ export default function EditProfile() {
     e.preventDefault();
     axios
       .put(
-        `simply-book.vercel.app/api/users/${id}`,
+        `https://newback-simply-book.onrender.com/api/users/${id}`,
         data,
         {
           headers: headers,

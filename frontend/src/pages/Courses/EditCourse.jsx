@@ -18,7 +18,7 @@ export default function EditCourse() {
   useEffect(() => {
     const courseId = localStorage.getItem("courseId");
 
-    fetch(`simply-book.vercel.app/api/courses/${courseId}`)
+    fetch(`https://newback-simply-book.onrender.com/api/courses/${courseId}`)
       .then((res) => res.json())
       .then((data) => {
         setCourseName(data.name);
@@ -33,7 +33,7 @@ export default function EditCourse() {
     const courseId = localStorage.getItem("courseId");
     console.log(courseId);
 
-    fetch(`simply-book.vercel.app/api/courses/${courseId}`, {
+    fetch(`https://newback-simply-book.onrender.com/api/courses/${courseId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

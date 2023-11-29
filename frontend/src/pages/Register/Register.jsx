@@ -42,7 +42,7 @@ export default function Register() {
     ) {
       axios
         .post(
-          `simply-book.vercel.app/api/users`,
+          `https://newback-simply-book.onrender.com/api/users`,
           data,
           {
             headers: { "Content-Type": "application/json" },
